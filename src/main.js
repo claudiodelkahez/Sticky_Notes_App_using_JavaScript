@@ -2,9 +2,15 @@ const notesContainer = document.getElementById("app");
 const addNoteButton = notesContainer.querySelector(".add-note")
 
 
+//automatic loading for the exisiting notes it the page
+getNotes.forEach(note => {
+    //these properties came from the JSO in the localStorage
+    const noteElement = createNoteElement(note.id, note.content);
+    notesContainer.insertBefore(noteElement, addNoteButton);
+});
 
 
-function getNote() {
+function getNotes() {
     return JSON.parse(localStorage.getItem("stickynotes-notes") || "[]");
 }
 
@@ -12,7 +18,7 @@ function saveNotes(notes) {
     localStorage.setItem("stickynotes-notes", JSON.stringify(notes));
 }
 
-function createNoteElements(id, content) {
+function createNoteElement(id, content) {
     const element = document.createElement("textarea");
     //Javascript representation of a JavaScript textarea 
     element.classList.add("note");
@@ -25,9 +31,9 @@ function createNoteElements(id, content) {
         updateNote(id, element.value);
     });
     //react to when the user double clicks with the intention to delete a note 
-    element.addEventListener("dblclick", () =>{
+    element.addEventListener("dblclick", () => {
         const doDelete = confirm("Are you sure you wish to delete this note?");
-        if(doDelete) {
+        if (doDelete) {
             deleteNote(id, element);
         }
     });
@@ -47,5 +53,5 @@ function updateNote(id, newContent) {
 
 function deleteNote(id, element) {
     console.log("Deleting note note...");
-    console.log(id, newContent);
+    console.log(id);
 }
