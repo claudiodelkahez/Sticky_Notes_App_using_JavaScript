@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: blueviolet;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    padding: 24px;
+    gap: 24px;
+}
+
+.note {
+    height: 200px;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+}
+
+.add-note {
+    height: 200px;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 100px;
+    cursor: pointer;
+    transition: background .3s;
+}
+.add-note:hover {
+    
+    background: rgba(0, 0, 0, 0.3);
+
+   
+}
