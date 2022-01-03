@@ -39,7 +39,7 @@ body {
     border-radius: 10px;
     font-size: 100px;
     cursor: pointer;
-    transition: background .3s;
+    transition: background .3   s;
 }
 .add-note:hover {
     
